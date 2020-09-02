@@ -335,7 +335,7 @@ void GUIChatConsole::drawText()
 					false,
 					false,
 					&AbsoluteClippingRect);
-			} else 
+  			} else
 #endif
 			{
 				// Otherwise use standard text
@@ -612,13 +612,13 @@ bool GUIChatConsole::OnEvent(const SEvent& event)
 			prompt.nickCompletion(names, backwards);
 			return true;
 		} else if (!iswcntrl(event.KeyInput.Char) && !event.KeyInput.Control) {
-			#if defined(__linux__) && (IRRLICHT_VERSION_MAJOR == 1 && IRRLICHT_VERSION_MINOR < 9)
-				wchar_t wc = L'_';
-				mbtowc( &wc, (char *) &event.KeyInput.Char, sizeof(event.KeyInput.Char) );
-				prompt.input(wc);
-			#else
-				prompt.input(event.KeyInput.Char);
-			#endif
+			// #if defined(__linux__) && (IRRLICHT_VERSION_MAJOR == 1 && IRRLICHT_VERSION_MINOR < 9)
+			// 	wchar_t wc = L'_';
+			// 	mbtowc( &wc, (char *) &event.KeyInput.Char, sizeof(event.KeyInput.Char) );
+			// 	prompt.input(wc);
+			// #else
+            prompt.input(event.KeyInput.Char);
+			// #endif
 			return true;
 		}
 	}

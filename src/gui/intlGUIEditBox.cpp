@@ -278,13 +278,13 @@ bool intlGUIEditBox::OnEvent(const SEvent& event)
 			// ValkaTR:
             // This part is the difference from the original intlGUIEditBox
             // It converts UTF-8 character into a UCS-2 (wchar_t)
-            wchar_t wc = L'_';
-            mbtowc( &wc, (char *) &event.KeyInput.Char, sizeof(event.KeyInput.Char) );
+            // wchar_t wc = L'_';
+            // mbtowc( &wc, (char *) &event.KeyInput.Char, sizeof(event.KeyInput.Char) );
 
             //printf( "char: %lc (%u)  \r\n", wc, wc );
 
             SEvent irrevent(event);
-            irrevent.KeyInput.Char = wc;
+            // irrevent.KeyInput.Char = wc;
             // ################################################################
 
 			if (processKey(irrevent))
