@@ -325,7 +325,7 @@ KeyPress::KeyPress(const irr::SEvent::SKeyInput &in, bool prefer_character)
 		Key = irr::KEY_KEY_CODES_COUNT;
 	else
 		Key = in.Key;
-	Char = in.Char;
+	Char = (wchar_t)*in.Char;
 
 	try {
 		if (valid_kcode(Key))
