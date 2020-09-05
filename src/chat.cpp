@@ -386,8 +386,8 @@ ChatPrompt::ChatPrompt(const std::wstring &prompt, u32 history_limit):
 
 void ChatPrompt::input(wchar_t ch)
 {
-	m_line.insert(m_cursor, 1, ch);
-	m_cursor++;
+	m_line.insert(m_cursor, sizeof(ch) / 4, ch);
+	m_cursor += sizeof(ch) / 4;
 	clampView();
 	m_nick_completion_start = 0;
 	m_nick_completion_end = 0;

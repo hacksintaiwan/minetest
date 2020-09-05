@@ -149,7 +149,7 @@ namespace gui
 		//! returns the line number that the cursor is on
 		s32 getLineFromPos(s32 pos);
 		//! adds a letter to the edit box
-		void inputChar(wchar_t c);
+		void inputChar(wchar_t *c);
 		//! calculates the current scroll position
 		void calculateScrollPos();
 		//! send some gui event to parent

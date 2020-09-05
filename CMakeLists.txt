@@ -326,3 +326,5 @@ if(DOXYGEN_FOUND)
 		COMMENT "Generating API documentation with Doxygen" VERBATIM
 	)
 endif()
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
