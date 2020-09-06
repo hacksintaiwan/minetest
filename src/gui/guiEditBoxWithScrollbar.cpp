@@ -266,7 +266,7 @@ bool GUIEditBoxWithScrollBar::processKey(const SEvent& event)
 	if (event.KeyInput.Control) {
 
 		// german backlash '\' entered with control + '?'
-		if (event.KeyInput.Char == '\\') {
+		if ((wchar_t)*event.KeyInput.Char == '\\') {
 			inputChar(event.KeyInput.Char);
 			return true;
 		}
@@ -437,7 +437,7 @@ bool GUIEditBoxWithScrollBar::processKey(const SEvent& event)
 		break;
 		case KEY_RETURN:
 			if (m_multiline) {
-				inputChar(L'\n');
+				inputChar((wchar_t *)L'\n');
 			} else {
 				calculateScrollPos();
 				sendGuiEvent(EGET_EDITBOX_ENTER);
@@ -1197,7 +1197,7 @@ s32 GUIEditBoxWithScrollBar::getLineFromPos(s32 pos)
 }
 
 
-void GUIEditBoxWithScrollBar::inputChar(wchar_t c)
+void GUIEditBoxWithScrollBar::inputChar(wchar_t *c)
 {
 	if (!isEnabled())
 		return;
@@ -1222,7 +1222,7 @@ void GUIEditBoxWithScrollBar::inputChar(wchar_t c)
 				s.append(c);
 				s.append(Text.subString(m_cursor_pos, Text.size() - m_cursor_pos));
 				Text = s;
-				++m_cursor_pos;
+				m_cursor_pos += wcslen(c);
 			}
 
 			m_blink_start_time = porting::getTimeMs();

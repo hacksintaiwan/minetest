@@ -1320,7 +1320,6 @@ void intlGUIEditBox::inputChar(wchar_t *c)
 				Text = s;
 				CursorPos = realmbgn + 1;
 			} else {
-				printf("initguieditbox, inputchar\n");
 				// add new character
 				s = Text.subString(0, CursorPos);
 				s.append(c);

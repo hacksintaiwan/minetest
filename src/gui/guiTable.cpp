@@ -851,7 +851,7 @@ bool GUITable::OnEvent(const SEvent &event)
 
 			// add to key buffer if not a key repeat
 			if (!(m_keynav_buffer.size() == 1 &&
-					m_keynav_buffer[0] == event.KeyInput.Char)) {
+					m_keynav_buffer[0] == (wchar_t)*event.KeyInput.Char)) {
 				m_keynav_buffer.append(event.KeyInput.Char);
 			}
 
