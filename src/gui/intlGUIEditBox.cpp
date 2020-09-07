@@ -485,7 +485,8 @@ bool intlGUIEditBox::processKey(const SEvent &event)
 		} break;
 		case KEY_RETURN:
 			if (MultiLine) {
-				inputChar((wchar_t *)L'\n');
+				wchar_t Char[1] = {L'\n'};
+				inputChar(Char);
 				return true;
 			} else {
 				sendGuiEvent(EGET_EDITBOX_ENTER);
